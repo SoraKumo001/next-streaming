@@ -7,8 +7,8 @@
     "lint": "next lint"
   },
   "dependencies": {
-    "@react-libraries/suspense-loader": "^0.0.2",
-    "next": "^12.0.7",
+    "@react-libraries/suspense-loader": "^0.0.4",
+    "next": "^12.0.8-canary.11",
     "react": "^18.0.0-rc.0",
     "react-dom": "^18.0.0-rc.0"
   },
@@ -22,7 +22,6 @@
   "name": "next-streaming",
   "description": "SSR-Streaming sample in Next.js",
   "version": "1.0.0",
-  "main": "next.config.js",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/SoraKumo001/next-streaming.git"
