@@ -4,6 +4,7 @@ https://github.com/vercel/next-rsc-demo
 The above is implemented without RSC.
 
 - Operation check site  
+  <https://next-streaming.vercel.app/>
   <https://next-streaming.herokuapp.com/>
 
 - The npm package we created to achieve this functionality  
