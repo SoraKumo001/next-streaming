@@ -1,11 +1,9 @@
-import Link from "next/link";
-import News from "../components/News";
-import { Header } from "../components/Header";
+import { NewsContainer } from "../components/NewsContainer";
 
 const PageStreaming = () => {
   return (
     <>
-      <News wait={0} type="ssr" title="SSR" />
+      <NewsContainer wait={0} type="ssr" title=" Hybrid SSR SSR" />
     </>
   );
 };

@@ -4,7 +4,7 @@ export const Spinner = () => {
       <style jsx>
         {`
           .spinner {
-            margin: 12px;
+            margin: 16px;
             width: 28px;
             height: 28px;
             animation: spinner-rotating 1.2s infinite;

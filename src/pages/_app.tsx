@@ -5,7 +5,7 @@ import {
   setSuspenseTreeContext,
   SuspenseTreeContextType,
 } from "@react-libraries/suspense-loader";
-import { Header } from "../components/Header";
+import { Page } from "../components/Page";
 
 const timeoutSSR = 1400;
 
@@ -13,9 +13,9 @@ const App = (props: AppProps & { context: SuspenseTreeContextType }) => {
   const { Component, context } = props;
   setSuspenseTreeContext(context);
   return (
-    <Header>
+    <Page>
       <Component />
-    </Header>
+    </Page>
   );
 };
 

@@ -1,11 +1,18 @@
-# SSR-Streaming sample in Next.js
+# SuspenseLoader sample program
 
-https://github.com/vercel/next-rsc-demo  
-The above is implemented without RSC.
+- The npm package we created to achieve this functionality  
+  <https://www.npmjs.com/package/@react-libraries/suspense-loader>
 
 - Operation check site  
   <https://next-streaming.vercel.app/>  
   <https://next-streaming.herokuapp.com/>
 
-- The npm package we created to achieve this functionality  
-  <https://www.npmjs.com/package/@react-libraries/suspense-loader>
+- Based on Vercel's RSC-Demo  
+  https://github.com/vercel/next-rsc-demo
+
+## The hybrid SSR in this program works as follows
+
+- When concurrentFeatures is enabled  
+  Static SSR (within 1.4 seconds) + SSR-Streaming
+- When concurrentFeatures is disabled or React17 system is used  
+  Static SSR (within 1.4 seconds) + CSR

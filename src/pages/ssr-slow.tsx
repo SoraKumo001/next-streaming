@@ -1,8 +1,6 @@
-import Link from "next/link";
-import News from "../components/News";
-import { Header } from "../components/Header";
+import { NewsContainer } from "../components/NewsContainer";
 
 const PageStreaming = () => {
-  return <News wait={500} type="ssr" title="SSR Streaming" />;
+  return <NewsContainer wait={500} type="ssr" title="Hybrid SSR with API Delays" />;
 };
 export default PageStreaming;
