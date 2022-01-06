@@ -18,7 +18,7 @@ export const Story = () => {
   const { host } = url ? new URL(url) : { host: "#" };
   const [voted, setVoted] = useState(false);
   return (
-    <div style={{ margin: "5px 0" }}>
+    <div style={{ margin: "8px 0" }}>
       <div className="title">
         <span
           style={{

@@ -5,17 +5,24 @@ import {
   setSuspenseTreeContext,
   SuspenseTreeContextType,
 } from "@react-libraries/suspense-loader";
+import { Header } from "../components/Header";
+
+const timeoutSSR = 1400;
 
 const App = (props: AppProps & { context: SuspenseTreeContextType }) => {
   const { Component, context } = props;
   setSuspenseTreeContext(context);
-  return <Component />;
+  return (
+    <Header>
+      <Component />
+    </Header>
+  );
 };
 
 App.getInitialProps = async ({ Component, router, AppTree }: AppContext) => {
   const context = await getDataFromTree(
     <AppTree Component={Component} pageProps={{}} router={router} />,
-    1400
+    timeoutSSR
   );
   return { context };
 };

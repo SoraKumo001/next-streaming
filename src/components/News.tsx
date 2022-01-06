@@ -4,14 +4,27 @@ import {
   SuspenseDispatch,
   SuspenseLoader,
   SuspenseType,
+  useSuspenseData,
 } from "@react-libraries/suspense-loader";
 import { loader } from "../libs/loader";
 import { Spinner } from "../components/Spinner";
+import Link from "next/link";
 
-const News = ({ wait, type }: { wait: number; type: SuspenseType }) => {
+const News = ({
+  wait,
+  type,
+  title,
+}: {
+  wait: number;
+  type: SuspenseType;
+  title: string;
+}) => {
   const dispatch = useRef<SuspenseDispatch>();
   return (
     <>
+      <div>
+        <Link href="/">⬅️</Link> {title}
+      </div>
       <div>
         <button
           onClick={() => {

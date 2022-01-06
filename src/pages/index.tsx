@@ -1,9 +1,9 @@
 import Link from "next/link";
-import { Page } from "../components/Page";
+import { Header } from "../components/Header";
 
 const TopPage = () => {
   return (
-    <Page>
+    <Header>
       <p>
         Immediately after switching the page, it will work with CSR. <br />
         Please reload your browser to see how it works.
@@ -44,7 +44,7 @@ const TopPage = () => {
           <Link href="/ssr-streaming-slow">SSR Streaming with API Delays</Link>
         </p>
       </section>
-    </Page>
+    </Header>
   );
 };
 export default TopPage;

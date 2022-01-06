@@ -1,15 +1,12 @@
 import Link from "next/link";
 import News from "../components/News";
-import { Page } from "../components/Page";
+import { Header } from "../components/Header";
 
 const PageStreaming = () => {
   return (
-    <Page>
-      <div>
-        <Link href="/">⬅️</Link> SSR
-      </div>
-      <News wait={0} type="ssr" />
-    </Page>
+    <>
+      <News wait={0} type="ssr" title="SSR" />
+    </>
   );
 };
 export default PageStreaming;

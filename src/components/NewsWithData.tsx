@@ -14,8 +14,7 @@ export const NewsWithData = ({
   wait: number;
   type: SuspenseType;
 }) => {
-  const storyIds = useSuspenseData<number[] | undefined>();
-  if (!storyIds) return null;
+  const storyIds = useSuspenseData<number[]>();
   return (
     <>
       {storyIds.slice(0, 30).map((id) => {
