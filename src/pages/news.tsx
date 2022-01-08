@@ -12,7 +12,7 @@ const PageStreaming = () => {
       wait={Number(wait)}
       type={type as SuspenseType}
       title={`${titles[type as SuspenseType]}${
-        Number(wait) ? `+ ${wait}ms delay` : ""
+        Number(wait) ? ` + ${wait}ms delay` : ""
       }`}
     />
   );
