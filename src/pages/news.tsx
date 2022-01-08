@@ -6,11 +6,12 @@ const titles = { csr: "CSR", ssr: "SSR", streaming: "SSR Streaming" };
 
 const PageStreaming = () => {
   const router = useRouter();
-  const { wait, type } = router.query;
+  const { wait, type, page } = router.query;
   return (
     <NewsContainer
       wait={Number(wait)}
       type={type as SuspenseType}
+      page={Number(page || 0)}
       title={`${titles[type as SuspenseType]}${
         Number(wait) ? ` + ${wait}ms delay` : ""
       }`}

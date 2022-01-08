@@ -7,26 +7,27 @@ import {
 import { topLoader } from "../libs/loader";
 import { Spinner } from "./Spinner";
 import Link from "next/link";
-import { NewsContents } from "./News";
+import { News } from "./News";
 
 interface Props {
   wait: number;
   type: SuspenseType;
   title: string;
+  page: number;
 }
 
-export const NewsContainer = ({ wait, type, title }: Props) => {
+export const NewsContainer = ({ wait, type, title, page }: Props) => {
   const dispatch = useRef<SuspenseDispatch>();
   return (
     <div className="root">
-      <style jsx global>{`
+      <style jsx>{`
         .top {
           margin: 16px 0;
         }
         .root :global(.box) {
           margin: 4px 0;
         }
-        .root :global(news) {
+        .root :global(.news) {
           height: 64px;
         }
         .root :global(.title) {
@@ -89,7 +90,7 @@ export const NewsContainer = ({ wait, type, title }: Props) => {
         onLoaded={() => console.log("Loading complete")} //Events that occur after loading is complete
         type={type}
       >
-        <NewsContents wait={wait} type={type} />
+        <News wait={wait} type={type} page={page} />
       </SuspenseLoader>
     </div>
   );
