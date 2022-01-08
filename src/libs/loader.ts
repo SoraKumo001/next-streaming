@@ -1,10 +1,10 @@
 export const topLoader = ({ wait }: { wait: number }): Promise<number> =>
   fetch(`https://hacker-news.firebaseio.com/v0/topstories.json`)
+    .then((v) => v.json())
     .then(async (v) => {
       wait && (await new Promise((r) => setTimeout(r, wait)));
       return v;
-    })
-    .then((v) => v.json());
+    });
 
 export type StoryType = {
   id: number;
@@ -26,8 +26,8 @@ export const storyLoader = ({
   wait: number;
 }): Promise<StoryType> =>
   fetch(`https://hacker-news.firebaseio.com/v0/item/${id}.json`)
+    .then((v) => v.json())
     .then(async (v) => {
       wait && (await new Promise((r) => setTimeout(r, wait)));
       return v;
-    })
-    .then((v) => v.json());
+    });
