@@ -3,23 +3,19 @@ import {
   SuspenseDispatch,
   SuspenseLoader,
   SuspenseType,
-  useSuspenseData,
 } from "@react-libraries/suspense-loader";
-import { loader } from "../libs/loader";
+import { topLoader } from "../libs/loader";
 import { Spinner } from "./Spinner";
 import Link from "next/link";
-import { Story } from "./Story";
 import { NewsContents } from "./News";
 
-export const NewsContainer = ({
-  wait,
-  type,
-  title,
-}: {
+interface Props {
   wait: number;
   type: SuspenseType;
   title: string;
-}) => {
+}
+
+export const NewsContainer = ({ wait, type, title }: Props) => {
   const dispatch = useRef<SuspenseDispatch>();
   return (
     <>
@@ -53,7 +49,7 @@ export const NewsContainer = ({
       <SuspenseLoader
         dispatch={dispatch} //Dispatch for reloading
         name="news" //Name the SSR transfer data.
-        loader={loader} //A loader that returns a Promise
+        loader={topLoader} //A loader that returns a Promise
         loaderValue={{ type: "topstories", wait }} //Parameters to be passed to the loader (can be omitted if not needed)
         fallback={<Spinner />} //Components to be displayed while loading
         onLoaded={() => console.log("Loading complete")} //Events that occur after loading is complete

@@ -4,13 +4,18 @@ export const Spinner = () => {
       <style jsx>
         {`
           .spinner {
-            margin: 16px;
+            display: flex;
+            align-items: center;
+            height: 64px;
+          }
+          .spinner > div {
+            margin-left: 24px;
             width: 28px;
             height: 28px;
             animation: spinner-rotating 1.2s infinite;
             animation-timing-function: steps(12, end);
           }
-          .spinner:before {
+          .spinner > div:before {
             content: "";
             display: block;
             width: 4px;
@@ -34,7 +39,9 @@ export const Spinner = () => {
           }
         `}
       </style>
-      <div className="spinner" />
+      <div className="spinner">
+        <div />
+      </div>
     </>
   );
 };

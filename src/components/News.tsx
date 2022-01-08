@@ -3,7 +3,7 @@ import {
   SuspenseType,
   useSuspenseData,
 } from "@react-libraries/suspense-loader";
-import { loader } from "../libs/loader";
+import { storyLoader } from "src/libs/loader";
 import { Spinner } from "./Spinner";
 import { Story } from "./Story";
 
@@ -17,19 +17,25 @@ export const NewsContents = ({
   const storyIds = useSuspenseData<number[]>();
   return (
     <>
+      <style jsx>{`
+        .box {
+          margin: 4px 0;
+        }
+      `}</style>
       {storyIds.slice(0, 30).map((id) => {
         return (
-          <SuspenseLoader
-            key={id}
-            name={`News/${id}`}
-            loader={loader}
-            loaderValue={{ type: `item/${id}`, wait }}
-            fallback={<Spinner />}
-            onLoaded={() => console.log(`Loading complete(${id})`)}
-            type={type}
-          >
-            <Story />
-          </SuspenseLoader>
+          <div key={id} className="box">
+            <SuspenseLoader
+              name={`News/${id}`}
+              loader={storyLoader}
+              loaderValue={{ id, wait }}
+              fallback={<Spinner />}
+              onLoaded={() => console.log(`Loading complete(${id})`)}
+              type={type}
+            >
+              <Story wait={wait} type={type} />
+            </SuspenseLoader>
+          </div>
         );
       })}
     </>
