@@ -17,11 +17,6 @@ export const NewsContents = ({
   const storyIds = useSuspenseData<number[]>();
   return (
     <>
-      <style jsx>{`
-        .box {
-          margin: 4px 0;
-        }
-      `}</style>
       {storyIds.slice(0, 30).map((id) => {
         return (
           <div key={id} className="box">

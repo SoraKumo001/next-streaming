@@ -25,8 +25,6 @@ export const Item = ({
         .comment {
           margin: 8px 0;
         }
-        .time {
-        }
         a.reload {
           margin-left: 8px;
           font-size: 12px;

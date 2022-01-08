@@ -18,12 +18,45 @@ interface Props {
 export const NewsContainer = ({ wait, type, title }: Props) => {
   const dispatch = useRef<SuspenseDispatch>();
   return (
-    <>
-      <style jsx>{`
+    <div className="root">
+      <style jsx global>{`
         .top {
           margin: 16px 0;
         }
+        .root :global(.box) {
+          margin: 4px 0;
+        }
+        .root :global(news) {
+          height: 64px;
+        }
+        .root :global(.title) {
+          font-size: 15px;
+          margin-bottom: 3px;
+        }
+        .root :global(.vote) {
+          cursor: pointer;
+          font-family: sans-serif;
+          margin-right: 5px;
+        }
+        .root :global(.source) {
+          font-size: 12px;
+          display: inline-block;
+          margin-left: 5px;
+        }
+        .root :global(.source a),
+        .root :global(.meta a) {
+          color: #828282;
+          text-decoration: none;
+        }
+        .root :global(a.reload) {
+          font-size: 12px;
+          padding: 2px;
+          background: lightGray;
+          border-radius: 4px;
+          cursor: pointer;
+        }
       `}</style>
+
       <div className="top">
         <div>
           <Link href="/">⬅️</Link> {title}
@@ -46,6 +79,7 @@ export const NewsContainer = ({ wait, type, title }: Props) => {
         </div>
       </div>
       <hr />
+
       <SuspenseLoader
         dispatch={dispatch} //Dispatch for reloading
         name="news" //Name the SSR transfer data.
@@ -57,6 +91,6 @@ export const NewsContainer = ({ wait, type, title }: Props) => {
       >
         <NewsContents wait={wait} type={type} />
       </SuspenseLoader>
-    </>
+    </div>
   );
 };

@@ -15,41 +15,7 @@ export const Story = ({ wait, type }: { wait: number; type: SuspenseType }) => {
   const { host } = url ? new URL(url) : { host: "#" };
   const [voted, setVoted] = useState(false);
   return (
-    <div className="root">
-      <style jsx>{`
-        .root {
-          height: 64px;
-          background: mintcream;
-          padding: 8px;
-          border-radius: 4px;
-        }
-        .title {
-          font-size: 15px;
-          margin-bottom: 3px;
-        }
-        .vote {
-          cursor: pointer;
-          font-family: sans-serif;
-          margin-right: 5px;
-        }
-        .source {
-          font-size: 12px;
-          display: inline-block;
-          margin-left: 5px;
-        }
-        .source a,
-        .meta a {
-          color: #828282;
-          text-decoration: none;
-        }
-        a.reload {
-          font-size: 12px;
-          padding: 2px;
-          background: lightGray;
-          border-radius: 4px;
-          cursor: pointer;
-        }
-      `}</style>
+    <div className="news">
       <div className="title">
         <span
           className="vote"
