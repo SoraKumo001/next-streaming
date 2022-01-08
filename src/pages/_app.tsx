@@ -12,11 +12,10 @@ const timeoutSSR = 1400;
 const App = (
   props: AppProps & { context: SuspenseTreeContextType; time?: string }
 ) => {
-  const { Component, context, time } = props;
+  const { Component, context } = props;
   setSuspenseTreeContext(context);
   return (
     <Page>
-      <div>Last update: {time || ""}</div>
       <Component />
     </Page>
   );
@@ -27,6 +26,6 @@ App.getInitialProps = async ({ Component, router, AppTree }: AppContext) => {
     <AppTree Component={Component} pageProps={{}} router={router} />,
     timeoutSSR
   );
-  return { context, time: new Date().toISOString() };
+  return { context };
 };
 export default App;
