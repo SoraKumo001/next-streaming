@@ -7,22 +7,22 @@ export const Page: FC = ({ children }) => {
       <Head>
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <meta charSet="utf-8" />
-        <style jsx global>
-          {`
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
-body {
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto",
-    "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans",
-    "Helvetica Neue", sans-serif;
-  background: #eee;
-}
-`}
-        </style>
       </Head>
-
+      <style jsx global>
+        {`
+          html,
+          body {
+            margin: 0;
+            padding: 0;
+          }
+          body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto",
+              "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans",
+              "Helvetica Neue", sans-serif;
+            background: #eee;
+          }
+        `}
+      </style>
       <style jsx>{`
         .root {
           width: 85%;
