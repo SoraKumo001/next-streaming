@@ -33,3 +33,22 @@ export const storyLoader = async ({
     (v) => v.json()
   );
 };
+
+export type UserType = {
+  created: number;
+  id: string;
+  submitted: number[];
+};
+
+export const userLoader = async ({
+  id,
+  wait,
+}: {
+  id: string;
+  wait: number;
+}): Promise<UserType> => {
+  wait && (await new Promise((r) => setTimeout(r, wait)));
+  return fetch(`https://hacker-news.firebaseio.com/v0/user/${id}.json`).then(
+    (v) => v.json()
+  );
+};

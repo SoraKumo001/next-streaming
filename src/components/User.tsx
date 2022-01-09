@@ -1,15 +1,15 @@
 import { SuspenseLoader, SuspenseType } from "@react-libraries/suspense-loader";
 import Link from "next/link";
-import { storyLoader } from "src/libs/loader";
+import { storyLoader, userLoader } from "src/libs/loader";
 import { timeAgo } from "src/libs/timeago";
 import { Spinner } from "./Spinner";
 
-export const Item = ({
+export const User = ({
   id,
   wait,
   type,
 }: {
-  id: number;
+  id: string;
   wait: number;
   type: SuspenseType;
 }) => {
@@ -38,7 +38,7 @@ export const Item = ({
       <div key={id} className="box">
         <SuspenseLoader
           name={`News/${id}`}
-          loader={storyLoader}
+          loader={userLoader}
           loaderValue={{ id, wait }}
           fallback={
             <>
@@ -51,12 +51,12 @@ export const Item = ({
           onLoaded={() => console.log(`Loading complete(${id})`)}
           type={type}
         >
-          {({ title, kids }) => (
+          {({ submitted }) => (
             <>
               <Link href={`/news?type=${type}&wait=${wait}`}>
-                <a>⬅️ {title}</a>
+                <a>⬅️</a>
               </Link>
-              {kids.slice(0, 5).map((id) => (
+              {submitted.slice(0, 5).map((id) => (
                 <div key={id}>
                   <SuspenseLoader
                     name={`News/${id}`}
@@ -66,7 +66,7 @@ export const Item = ({
                     onLoaded={() => console.log(`Loading complete(${id})`)}
                     type={type}
                   >
-                    {({ by, text, time }, dispatch) => (
+                    {({ title, by, text, time }, dispatch) => (
                       <>
                         <div className="comment">
                           <div>
@@ -81,7 +81,10 @@ export const Item = ({
                               Reload
                             </a>
                           </div>
-                          <div dangerouslySetInnerHTML={{ __html: text }} />
+                          {title && <div>{title}</div>}
+                          {text && (
+                            <div dangerouslySetInnerHTML={{ __html: text }} />
+                          )}
                         </div>
                         <hr />
                       </>

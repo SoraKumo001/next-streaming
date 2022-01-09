@@ -35,7 +35,7 @@ export const Story = ({ wait, type }: { wait: number; type: SuspenseType }) => {
       </div>
       <div className="meta">
         {score} point{score ? "s" : ""} by{" "}
-        <Link href={`/user?id=${by}`}>
+        <Link href={`/user?id=${by}&wait=${wait}&type=${type}`}>
           <a>{by}</a>
         </Link>{" "}
         {timeAgo(time * 1000)} |{" "}
