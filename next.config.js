@@ -1,11 +1,11 @@
+// @ts-check
 /**
  * @type { import("next").NextConfig}
  */
 const config = {
-  reactStrictMode: true,
   experimental: {
     cpus: 4,
-    concurrentFeatures: true,
+    runtime: "edge",
   },
 };
 module.exports = config;
