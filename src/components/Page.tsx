@@ -1,7 +1,7 @@
 import Head from "next/head";
-import { FC } from "react";
+import { FC, ReactNode } from "react";
 
-export const Page: FC = ({ children }) => {
+export const Page: FC<{ children: ReactNode }> = ({ children }) => {
   return (
     <>
       <Head>
