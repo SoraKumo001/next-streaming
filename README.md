@@ -1,5 +1,8 @@
 # SuspenseLoader sample program
 
+This sample requires Next.js `12.1.6`  
+It will not work after that date due to a bug in Next.js.
+
 - The npm package we created to achieve this functionality  
   <https://www.npmjs.com/package/@react-libraries/suspense-loader>
 
